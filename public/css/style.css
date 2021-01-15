@@ -2,3 +2,25 @@
   width: 100%;
   height: auto;
 }
+
+.row {
+  display: inline-block;
+  width: 100%;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;  
+}
+
+.well {
+  margin-top: 15px;
+}
+
+.col-sm-4 {
+  width: 25%;
+  text-align: left;
+}
