@@ -1,5 +1,6 @@
 let express = require('express')
 let db = require('../models')
+const article = require('../models/article')
 let router = express.Router()
 
 // POST /articles - create a new post
@@ -17,6 +18,21 @@ router.post('/', (req, res) => {
   })
 })
 
+// router.post('/comment/:id', (req, res) => {
+//   db.article.findOne({
+//     where: { id: req.params.id },
+//     include: [db.author, db.comment]
+// })
+// .then(article => {
+//   article.createComment({
+//     name: req.body.name,
+//     content: req.body.content
+//   })
+//   .then(comment => {
+//     res.redirect(`/articles/${req.params.id}`)
+//   })
+// })
+
 // GET /articles/new - display form for creating new articles
 router.get('/new', (req, res) => {
   db.author.findAll()
@@ -32,7 +48,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.article.findOne({
     where: { id: req.params.id },
-    include: [db.author]
+    include: [db.author, db.comment]
   })
   .then((article) => {
     if (!article) throw Error()

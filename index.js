@@ -3,6 +3,7 @@ let ejsLayouts = require('express-ejs-layouts')
 let db = require('./models')
 let moment = require('moment')
 let rowdy = require('rowdy-logger')
+const article = require('./models/article')
 let app = express()
 
 rowdy.begin(app)
